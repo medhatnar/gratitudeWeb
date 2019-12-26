@@ -1,0 +1,26 @@
+{
+  "name": "gratitudeweb",
+  "version": "1.0.0",
+  "description": "home made grat app",
+  "main": "Index.jsx",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narmander/gratitudeWeb.git"
+  },
+  "author": "nar and ry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narmander/gratitudeWeb/issues"
+  },
+  "homepage": "https://github.com/narmander/gratitudeWeb#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}
