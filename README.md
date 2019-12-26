@@ -15,12 +15,12 @@ Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flas
 * Once we find an image we like to use for the Welcome screen, we can add a color scheme. (For example: The color scheme here is blue, orange, white, etc.)
 
 ## Components(Subject to Change):
-* Welcome Page Container
+* **Welcome Page Container**
 * Nav bar
 * Welcome Text
 * Menu Card
 
-* Meditation Page Container
+* **Meditation Page Container**
 * Timer Component
 * Graitude Input Field
 
