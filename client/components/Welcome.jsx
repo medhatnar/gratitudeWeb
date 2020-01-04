@@ -1,7 +1,45 @@
 import React from 'react';
+import { MenuCards } from 'Components/MenuCards';
 
-export const Welcome = (props) => {
-    return (
-        <div>this is a {props.examplePropForRyan}</div>
-    )
-}
+const WelcomeText = props => {
+	return (
+		<div class='welcome-text'>
+			<h2>Daily Gratitude</h2>
+			<h1>{props.greeting}</h1>
+			<p>{props.infoText}</p>
+		</div>
+	);
+};
+
+export const Welcome = props => {
+	return (
+		<div class='container welcome'>
+			<header>
+				<nav>
+					<span class='logo'>Logo Placeholder</span>
+					<a href='#'>About</a>
+					<a href='#'>Download App</a>
+					<a href='#'>{props.loginLogout}</a>
+				</nav>
+			</header>
+			<main role='main'>
+				<div class='container main-content'>
+					<WelcomeText
+						greeting='Take a minute to meditate and a moment to reflect'
+						infoText='An application with various calming sounds to meditate to and a personal
+				diary of all things in your life you are grateful for. Start your day
+				peacefully and thankfully.'
+					/>
+                <MenuCards />
+				</div>
+			</main>
+			{/* splash image */}
+			<div class='container splash-image'>
+				<figure>
+					<img src='some_calming_image.jpg' alt='some calming image' />
+					<figcaption>Visual explanation of an image for accessibility</figcaption>
+				</figure>
+			</div>
+		</div>
+	);
+};
