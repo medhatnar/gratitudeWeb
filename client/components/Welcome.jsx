@@ -16,31 +16,21 @@ const WelcomeText = props => {
 	);
 };
 
+const greeting = 'Take a minute to meditate and a moment to reflect';
+const infoText =
+	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Start your day positively.';
+
 export const Welcome = props => {
 	return (
 		<>
 			<GlobalStyles />
 			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
-				<main role='main'>
-					<div className='container-main'>
-						<div className='welcome-text'>
-							<WelcomeText
-								greeting='Take a minute to meditate and a moment to reflect'
-								infoText='An application with various calming sounds to meditate to and a personal
-				diary of all you are grateful for. Start your day
-				positively.'
-							/>
-						</div>
-						<div className='container-menu'>
-							<MenuCards {...props} />
-						</div>
-					</div>
-				</main>
-				{/* splash image */}
-				<div className='container-image'>
-					<img src={SplashImage} alt='some calming image' />
-				</div>
+				<ContainerMain className='container-main'>
+					<WelcomeText greeting={greeting} infoText={infoText} />
+				</ContainerMain>
+				<ContainerImage className='container-image' />
+				<MenuCards {...props} />
 			</ContainerWelcome>
 			<footer>
 				<p>An App made by Nar and Ry</p>
@@ -51,19 +41,36 @@ export const Welcome = props => {
 };
 
 const ContainerWelcome = styled.div`
+	position: relative;
+	border: 5px solid red;
 	background: ${WHITE};
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	display: flex;
+	width: 100%;
+	min-height: 40rem;
+`;
+
+const ContainerMain = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid red;
+`;
+
+const ContainerImage = styled.div`
+	width: 45%;
+	background: url(${SplashImage}) no-repeat center center / cover;
 `;
 
 const WelcomeTextStyles = styled.div`
+	padding: 5rem;
 	.app-title {
-		color: ${LIGHT_BLUE};
+		color: ${RED};
 	}
 
 	.greeting {
-		color: ${YELLOW};
+		color: ${DARK_BLUE};
 	}
 
 	.blurb {
