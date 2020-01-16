@@ -2,17 +2,27 @@
 
 # Web Version of a homemade gratitude app.
 
-Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
+## Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
+
+## Overview:
+Daily Gratitude is a simple app created to help the user start their day on a calming and positive note.
+
+Upon opening the app the user is prompted to choose between one of various meditation themes, such as Ocean, Nature, White Noise, or even Guided Meditation for beginners.
+
+Once a selection is made, the user is brought to a page where a timer, set to the user's time of choice, will start to countdown. The countdown is the amount of time the user will have to meditate or, without doing anything else, relax to the themed selected sounds.
+
+After the meditation timer is up, the user will be brought to a page which contains an input field to enter something you are grateful for. The gratitude entry only occurs once per day.
+
+The user is then brought back to the home page where they can optionally select another meditation or take a look at their gratitude calendar, which shows all of their past daily gratitude entries.
 
 ## Design Specs:
 * Roughly this design: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
 
 * Like the mobile version we want a welcome screen that will present 4 different white noise options: https://dribbble.com/shots/6754418-Meditation-App
 * Instead in the web version we will be following this design. Imagine the cards below being the 4 options we saw in the mobile version: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
-* The about link will lead to an about page that talks about the app. Designs for this can be hashed out once Welcome Page is complete. Can be a blank link for now.
-* The download app link will send the user to their app store of choice. This can be a blank link for now since we are far away from having a delpoyed react native mobile app on an app store.
-* The big fish image on the right is not necessary. Just as long as it is a calming image.
-* Once we find an image we like to use for the Welcome screen, we can add a color scheme. (For example: The color scheme here is blue, orange, white, etc.)
+* The about link will lead to an about page that talks about the app.
+* The download app link will send the user to their app store of choice. 
+* The Login/Logout link will send user to login page, which will produce a modal to sign in or out.
 
 ## Components(Subject to Change):
 * **Welcome Page Container**
