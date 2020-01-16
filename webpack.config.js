@@ -15,13 +15,21 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				use: { loader: 'babel-loader', query: { compact: false } },
 			},
+			{
+				test: /\.(jpg|png)$/,
+				use: {
+					loader: 'url-loader',
+				},
+			},
 		],
 	},
-	plugins: [new HtmlWebpackPlugin({ template: "./client/index.html" })],
+	plugins: [new HtmlWebpackPlugin({ template: './client/index.html' })],
 	resolve: {
 		alias: {
+			Assets: path.resolve(__dirname, 'assets'),
 			Components: path.resolve(__dirname, 'client/components/'),
+			Styles: path.resolve(__dirname, 'client/styles')
 		},
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.jpg', '.png'],
 	},
 };

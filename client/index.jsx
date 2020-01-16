@@ -4,6 +4,6 @@ import * as ReactDOM from 'react-dom';
 import { Welcome } from 'Components/Welcome';
 
 ReactDOM.render(
-    <Welcome examplePropForRyan="POOSEY" />,
+    <Welcome />,
 	document.getElementById('main')
 );
