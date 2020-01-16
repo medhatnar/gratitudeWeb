@@ -5,7 +5,7 @@
 Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
 
 ## Design Specs:
-* Design we are copying: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
+* Roughly this design: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
 
 * Like the mobile version we want a welcome screen that will present 4 different white noise options: https://dribbble.com/shots/6754418-Meditation-App
 * Instead in the web version we will be following this design. Imagine the cards below being the 4 options we saw in the mobile version: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
