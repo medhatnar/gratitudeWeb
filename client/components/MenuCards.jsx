@@ -61,7 +61,4 @@ const CardStyles = styled.div`
             color: ${RED};
         }
 	}
-	/* trying to figure out how to color every other card
-       try coloring even indexes(i) ?
-    */
 `;
