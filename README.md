@@ -27,7 +27,7 @@ Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flas
 * Buttons to return to home screen or see past gratitudes.
 
 
-## Functional Specs:
+## Web Specific Specs:
 * When the user arrives on the site the text and cards will fade in from the bottom.
 * The cards will all be clickable and open a meditation page.
 * The meditation page will have a Circular timer component, the white noise that goes along with the meditation (e.g., ocean, rainfall, nature,etc.), and a background and color schema that matches the white noise (simple example: green background and text for nature sounds, blue background and text for ocean sounds).
@@ -36,10 +36,8 @@ Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flas
 * The Gratitude Entry page will have an input field fade in and text that states: "Type in something you are grateful for right now"
 * The input field will have a submit button but you can also press Enter button to submit.
 * Once submit, the gratitude will be stored in a database.
-* Once the user submits a "gratitude" you will be given two options: Return to Home Screen? or Look at Past Gratitudes.
+* Once the user submits a "gratitude" you will be given two options: Return to Home Screen? or Look at Past Gratitudes. Option to sign in will also be presented to save your gratitude.
 
-
-## Future Features
 * If user presses Past Gratitudes button, you will be taken to the Calendar page.
 * The calendar page will have all past Gratitudes entered.
 * The calendar days will have icons and colors showing what type of meditation you did that day.
