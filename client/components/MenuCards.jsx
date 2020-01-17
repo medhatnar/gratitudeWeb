@@ -23,8 +23,10 @@ export const MenuCards = ({
 };
 
 const ContainerMenuStyles = styled.div`
+	background: ${RED};
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
 	position: absolute;
-	border: 5px solid green;
 	bottom: 0;
 	right: 25%;
 	display: flex;
@@ -33,13 +35,11 @@ const ContainerMenuStyles = styled.div`
 const CardStyles = styled.div`
 	width: 25%;
 	padding: 5em 1em 1em 1em;
+	transition: ease-in-out 120ms;
 
-	&:nth-child(1) {
-		border-top-left-radius: 1rem;
-	}
-
-	&:last-child {
-		border-top-right-radius: 1rem;
+	&:hover {
+		transition: ease-in-out 120ms;
+		transform: scale(1) translateY(-20px);
 	}
 
 	&:nth-child(even) {
@@ -60,5 +60,13 @@ const CardStyles = styled.div`
         h2 {
             color: ${RED};
         }
+	}
+
+	&:first-child {
+		border-top-left-radius: 1rem;
+	}
+
+	&:last-child {
+		border-top-right-radius: 1rem;
 	}
 `;

@@ -29,8 +29,8 @@ export const Welcome = props => {
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={greeting} infoText={infoText} />
 				</ContainerMain>
-				<ContainerImage className='container-image' />
 				<MenuCards {...props} />
+				<ContainerImage className='container-image' />
 			</ContainerWelcome>
 			<footer>
 				<p>An App made by Nar and Ry</p>
@@ -42,24 +42,26 @@ export const Welcome = props => {
 
 const ContainerWelcome = styled.div`
 	position: relative;
-	border: 5px solid red;
 	background: ${WHITE};
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
 	display: flex;
 	width: 100%;
 	min-height: 40rem;
+	@media(max-width: 830px) {
+		flex-direction: column;
+	}
 `;
 
 const ContainerMain = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	border: 1px solid red;
+	justify-content: flex-start;
 `;
 
 const ContainerImage = styled.div`
-	width: 45%;
+	width: 55%;
+	border-radius: 1em;
 	background: url(${SplashImage}) no-repeat center center / cover;
 `;
 
