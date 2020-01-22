@@ -4,6 +4,9 @@
 
 ## Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
 
+![alt text](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/63/1094731/1d4dc0d5c729c68ae848a00062cc3fd8-original.png "Homepage")
+
+
 ## Overview:
 Daily Gratitude is a simple app created to help the user start their day on a calming and positive note.
 
