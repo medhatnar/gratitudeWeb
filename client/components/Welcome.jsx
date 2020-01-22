@@ -27,8 +27,8 @@ export const Welcome = props => {
 			<Navigation loggedIn={true} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
-					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText}/>
-				<MenuCards {...props} />
+					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
+					<MenuCards {...props} />
 				</ContainerMain>
 				<ContainerImage className='container-image' />
 			</ContainerWelcome>
@@ -59,7 +59,7 @@ const ContainerMain = styled.div`
 	order: 2;
 	@media (min-width: 830px) {
 		order: 1;
-		display:flex;
+		display: flex;
 	}
 `;
 
@@ -73,17 +73,24 @@ const ContainerImage = styled.div`
 	margin: 0 auto;
 	@media (min-width: 830px) {
 		order: 2;
-		width: 75%;
+		width: 100%;
+		padding-top:30em;
 	}
 `;
 
 const FooterStyles = styled.footer`
 	display: block;
 	text-align: center;
-`
+`;
 
 const WelcomeTextStyles = styled.div`
-	padding: 5rem;
+	padding: 2rem;
+	margin: 0 1em;
+	left: 25px;
+	@media (min-width: 640px) {
+		padding: 5rem;
+	}
+
 	.app-title {
 		color: ${RED};
 	}

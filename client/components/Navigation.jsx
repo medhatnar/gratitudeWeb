@@ -53,6 +53,26 @@ const NavStyles = styled.div`
 	@media (min-width: 830px) {
 		justify-content: space-between;
 	}
+
+	.about,
+	.calendar,
+	.download,
+	.login-logout {
+		margin: 0.5em;
+		padding: 0.5em 0;
+		color: ${GREY};
+		text-decoration: none;
+	}
+
+	@media (min-width: 640px) {
+		.about,
+		.calendar,
+		.download,
+		.login-logout {
+			margin: 1em;
+		}
+	}
+
 	a:hover,
 	a:focus {
 		color: ${YELLOW};
@@ -69,15 +89,5 @@ const NavStyles = styled.div`
 
 	.logo {
 		padding: 0.5em 0;
-	}
-
-	.about,
-	.calendar,
-	.download,
-	.login-logout {
-		margin: 1em;
-		padding: 0.5em 0;
-		color: ${GREY};
-		text-decoration: none;
 	}
 `;
