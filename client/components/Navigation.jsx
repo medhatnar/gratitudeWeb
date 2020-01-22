@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
-import { GREY, WHITE, YELLOW, RED } from 'Styles/colors';
+import { GREY, WHITE, YELLOW } from 'Styles/colors';
 
 export const Navigation = props => {
 	return (
@@ -24,14 +24,16 @@ export const Navigation = props => {
 								Download App
 							</a>
 						</li>
-						<li>
-							<a href='#' className='calendar'>
-								{props.loggedIn || 'Calendar'}
-							</a>
-						</li>
+						{props.loggedIn && (
+							<li>
+								<a href='#' className='calendar'>
+									Calendar
+								</a>
+							</li>
+						)}
 						<li>
 							<a href='#' className='login-logout'>
-								{props.loggedIn || 'Login'}
+								{props.loggedIn ? 'Logout' : 'Login'}
 							</a>
 						</li>
 					</ul>
@@ -46,9 +48,10 @@ const NavStyles = styled.div`
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	display: flex;
-	justify-content: space-between;
-	@media(max-width: 830px) {
-		justify-content: flex-start;
+	justify-content: flex-start;
+
+	@media (min-width: 830px) {
+		justify-content: space-between;
 	}
 	a:hover,
 	a:focus {

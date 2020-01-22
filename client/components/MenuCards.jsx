@@ -10,7 +10,7 @@ export const MenuCards = ({
 		<ContainerMenuStyles className='container-menu'>
 			{cardInfo.map((info, cardNumber) => {
 				return (
-					<CardStyles key={Math.random() * 4}>
+					<CardStyles key={cardNumber}>
 						<div className='card'>
 							<h3 className='card-number'>{`0${++cardNumber}`}</h3>
 							<h2 className='card-title'>{info}</h2>
@@ -26,10 +26,14 @@ const ContainerMenuStyles = styled.div`
 	background: ${RED};
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
-	position: absolute;
+	position: relative;
 	bottom: 0;
-	right: 25%;
 	display: flex;
+
+	@media (min-width: 830px) {
+		position: absolute;
+		right: 25%;
+	}
 `;
 
 const CardStyles = styled.div`
