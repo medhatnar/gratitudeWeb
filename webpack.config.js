@@ -23,7 +23,7 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new HtmlWebpackPlugin({ template: './server/templates/index.html' })],
+	plugins: [new HtmlWebpackPlugin({ template: './server/landing/templates/index.html' })],
 	resolve: {
 		alias: {
 			Assets: path.resolve(__dirname, 'assets'),
