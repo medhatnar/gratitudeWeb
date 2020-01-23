@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { LIGHT_BLUE, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 
 export const MenuCards = ({
-	cardInfo = ['Get Started', 'Ocean', 'Nature', 'White Noise'],
+	cardInfo = ['Get Started', 'Ocean', 'Nature', 'White Noise', 'Lo-fi'],
 	...props
 }) => {
 	return (
 		<ContainerMenuStyles className='container-menu'>
 			{cardInfo.map((info, cardNumber) => {
 				return (
-					<CardStyles key={Math.random() * 4}>
+					<CardStyles key={cardNumber}>
 						<div className='card'>
 							<h3 className='card-number'>{`0${++cardNumber}`}</h3>
 							<h2 className='card-title'>{info}</h2>
@@ -26,17 +26,21 @@ const ContainerMenuStyles = styled.div`
 	background: ${RED};
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
-	position: absolute;
+	position: relative;
 	bottom: 0;
-	right: 25%;
 	display: flex;
+
+	@media (min-width: 952px) {
+		position: absolute;
+		right: 35%;
+	}
 `;
 
 const CardStyles = styled.div`
 	width: 25%;
 	padding: 5em 1em 1em 1em;
 	transition: ease-in-out 120ms;
-
+	
 	&:hover {
 		transition: ease-in-out 120ms;
 		transform: scale(1) translateY(-20px);
