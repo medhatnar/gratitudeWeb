@@ -50,7 +50,7 @@ const NavStyles = styled.div`
 	display: flex;
 	justify-content: flex-start;
 
-	@media (min-width: 830px) {
+	@media (min-width: 952px) {
 		justify-content: space-between;
 	}
 

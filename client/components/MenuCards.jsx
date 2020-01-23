@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { LIGHT_BLUE, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 
 export const MenuCards = ({
-	cardInfo = ['Get Started', 'Ocean', 'Nature', 'White Noise'],
+	cardInfo = ['Get Started', 'Ocean', 'Nature', 'White Noise', 'Lo-fi'],
 	...props
 }) => {
 	return (
@@ -30,9 +30,9 @@ const ContainerMenuStyles = styled.div`
 	bottom: 0;
 	display: flex;
 
-	@media (min-width: 830px) {
+	@media (min-width: 952px) {
 		position: absolute;
-		right: 25%;
+		right: 35%;
 	}
 `;
 
@@ -40,7 +40,7 @@ const CardStyles = styled.div`
 	width: 25%;
 	padding: 5em 1em 1em 1em;
 	transition: ease-in-out 120ms;
-
+	
 	&:hover {
 		transition: ease-in-out 120ms;
 		transform: scale(1) translateY(-20px);

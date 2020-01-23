@@ -13,7 +13,7 @@ const defaultInfoText =
 const WelcomeText = props => {
 	return (
 		<WelcomeTextStyles>
-			<h3 className='app-title'>Daily Gratitude</h3>
+			<h2 className='app-title'>Daily Gratitude</h2>
 			<h1 className='greeting'>{props.greeting}</h1>
 			<p className='blurb'>{props.infoText}</p>
 		</WelcomeTextStyles>
@@ -49,7 +49,7 @@ const ContainerWelcome = styled.div`
 	background: ${WHITE};
 	border-bottom-left-radius: 1em;
 	border-bottom-right-radius: 1em;
-	@media (min-width: 830px) {
+	@media (min-width: 952px) {
 		flex-direction: row;
 	}
 `;
@@ -57,7 +57,7 @@ const ContainerWelcome = styled.div`
 const ContainerMain = styled.div`
 	align-items: center;
 	order: 2;
-	@media (min-width: 830px) {
+	@media (min-width: 952px) {
 		order: 1;
 		display: flex;
 	}
@@ -71,7 +71,7 @@ const ContainerImage = styled.div`
 	order: 1;
 	width: 85%;
 	margin: 0 auto;
-	@media (min-width: 830px) {
+	@media (min-width: 952px) {
 		order: 2;
 		width: 100%;
 		padding-top:30em;
