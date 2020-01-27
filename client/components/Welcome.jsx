@@ -29,6 +29,7 @@ export const Welcome = props => {
 		return (
 			<div>
 			<GlobalStyles />
+			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
