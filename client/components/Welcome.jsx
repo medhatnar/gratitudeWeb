@@ -1,9 +1,13 @@
 import React from 'react';
+import {Route} from 'react-router-dom'
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
 import { Navigation } from 'Components/Navigation';
 import SplashImage from 'Assets/Red-Lotus';
 import { GlobalStyles } from 'Styles/globalStyles';
+import { Switch } from 'react-router-dom';
+import { About } from './About';
+import { DownloadApp } from './DownloadApp';
 import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 
 const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
@@ -22,7 +26,12 @@ const WelcomeText = props => {
 
 export const Welcome = props => {
 	return (
+			
 		<>
+			<Switch>
+				<Route path='/about' component={About} />
+				<Route path='/download' component={DownloadApp} />
+			</Switch>
 			<GlobalStyles />
 			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
