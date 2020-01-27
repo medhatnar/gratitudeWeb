@@ -1,17 +1,12 @@
 import React from 'react';
-import {Link, Switch}  from 'react-router-dom'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {Link}  from 'react-router-dom'
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
-import About from './About'
-import DownloadApp from './DownloadApp'
+
 
 export const Navigation = props => {
-	// <Switch>
-	// 	<Route path="/about" component={About}></Route>
-	// 	<Route path="/download" component={DownloadApp}></Route>
-	// </Switch>
+	
 	return (
 
 		
