@@ -1,5 +1,5 @@
-from os import environ
-basedir = os.path.abspath(os.path.dirname(__file__))
+from os import environ, path
+basedir = path.abspath(path.dirname(__file__))
 
 
 class Config:
@@ -8,6 +8,6 @@ class Config:
     DEBUG = environ.get('DEBUG')
 
     # Database
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get(
         'SQLALCHEMY_TRACK_MODIFICATIONS')

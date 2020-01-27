@@ -5,7 +5,7 @@ class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,
                    primary_key=True)
-    username = Column(db.String.(64),
+    username = db.Column(db.String(64),
                       index=False,
                       unique=True,
                       nullable=False)
@@ -18,7 +18,15 @@ class User(db.Model):
                            unique=False,
                            nullable=False)
     password_hash = db.Column(db.String(128))
-    gratitudes = (db.Column, foreign_key=True)
+    gratitudes = db.Column(db.Integer, db.ForeignKey('gratitudes.id'), nullable=True)
+
+    def __repr__(self):
+        return '<User {}>'.format(self.username)
+
+class Gratitudes(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer,
+                   primary_key=True)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
