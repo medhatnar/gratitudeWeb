@@ -2,17 +2,30 @@
 
 # Web Version of a homemade gratitude app.
 
-Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
+## Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flask, Sql database.
+
+![alt text](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/63/1094731/1d4dc0d5c729c68ae848a00062cc3fd8-original.png "Homepage")
+
+
+## Overview:
+Daily Gratitude is a simple app created to help the user start their day on a calming and positive note.
+
+Upon opening the app the user is prompted to choose between one of various meditation themes, such as Ocean, Nature, White Noise, or even Guided Meditation for beginners.
+
+Once a selection is made, the user is brought to a page where a timer, set to the user's time of choice, will start to countdown. The countdown is the amount of time the user will have to meditate or, without doing anything else, relax to the themed selected sounds.
+
+After the meditation timer is up, the user will be brought to a page which contains an input field to enter something you are grateful for. The gratitude entry only occurs once per day.
+
+The user is then brought back to the home page where they can optionally select another meditation or take a look at their gratitude calendar, which shows all of their past daily gratitude entries.
 
 ## Design Specs:
 * Roughly this design: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
 
 * Like the mobile version we want a welcome screen that will present 4 different white noise options: https://dribbble.com/shots/6754418-Meditation-App
 * Instead in the web version we will be following this design. Imagine the cards below being the 4 options we saw in the mobile version: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
-* The about link will lead to an about page that talks about the app. Designs for this can be hashed out once Welcome Page is complete. Can be a blank link for now.
-* The download app link will send the user to their app store of choice. This can be a blank link for now since we are far away from having a delpoyed react native mobile app on an app store.
-* The big fish image on the right is not necessary. Just as long as it is a calming image.
-* Once we find an image we like to use for the Welcome screen, we can add a color scheme. (For example: The color scheme here is blue, orange, white, etc.)
+* The about link will lead to an about page that talks about the app.
+* The download app link will send the user to their app store of choice. 
+* The Login/Logout link will send user to login page, which will produce a modal to sign in or out.
 
 ## Components(Subject to Change):
 * **Welcome Page Container**
@@ -27,29 +40,46 @@ Tech Stack: (FRONT END)React, Styled-Components, Webpack. (BACKEND) Python, Flas
 * Buttons to return to home screen or see past gratitudes.
 
 
-## Functional Specs:
-* When the user arrives on the site the text and cards will fade in from the bottom.
-* The cards will all be clickable and open a meditation page.
-* The meditation page will have a Circular timer component, the white noise that goes along with the meditation (e.g., ocean, rainfall, nature,etc.), and a background and color schema that matches the white noise (simple example: green background and text for nature sounds, blue background and text for ocean sounds).
-* The timer component will be a circular timer. When the timer is up it fades and dissapears.
-* After the timer component is gone, we want to show the Gratitude entry page.
-* The Gratitude Entry page will have an input field fade in and text that states: "Type in something you are grateful for right now"
-* The input field will have a submit button but you can also press Enter button to submit.
-* Once submit, the gratitude will be stored in a database.
-* Once the user submits a "gratitude" you will be given two options: Return to Home Screen? or Look at Past Gratitudes.
+## Specs:
+
+* Design Inspiration - https://dribbble.com/shots/6754418-Meditation-App
+
+* Landing Page:
+
+   1. Contains Logo Image
+   2. Have a sign in form and an option to skip sign in.
 
 
-## Future Features
-* If user presses Past Gratitudes button, you will be taken to the Calendar page.
-* The calendar page will have all past Gratitudes entered.
-* The calendar days will have icons and colors showing what type of meditation you did that day.
-* The calendar days will also have preview text for the gratitude entered for that day.
+* Menu + Menu icon that produces a side collapse with the following options:
+  
+  
+  The options here will be:
+          1. Login/Logout
+          2. About
+          3. Gratitude Calendar (only available if user is loggedin).
+   
+* Home Page:
 
-* We create the concept of making a user account.
-* We create user authentication.
-* Calendar should reflect the past gratitudes of the user who is signed in.
-* We include a login/register button on the Welcome Page.
+    1. Contains a splash image that alternates per day.
+    2. A greeting that will be generic for new users, but specific to logged in users.
+    3. Menu "cards" to select the meditation theme you would like.
 
+* Meditation Page:
+
+
+   1. Background Image and color scheme matching the selected theme.
+   2. A timer set to user's selected meditation time.
+   3. A pause and play button. 
+   4. Alternating inspirational quotes somewhere on the page.
+
+
+* Gratitude Input:
+   1. Once the meditation is over, an input field will appear with a submit button.
+   2. Above the input field will be a stylized prompt stating, "Enter something you are grateful for".
+   3. Once the user enters the gratitude and hits submit, they will be rerouted to the home page if logged in. If not logged in, they will have the option to log in or return to the home page.
+
+
+For developers contributing, here is a more detailed technical spec: https://bit.ly/2RpQeYH
 
 
 
