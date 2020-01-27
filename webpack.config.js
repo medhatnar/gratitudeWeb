@@ -23,12 +23,16 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new HtmlWebpackPlugin({ template: './server/landing/templates/index.html' })],
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './server/landing/templates/index.html',
+		}),
+	],
 	resolve: {
 		alias: {
 			Assets: path.resolve(__dirname, 'assets'),
 			Components: path.resolve(__dirname, 'client/components/'),
-			Styles: path.resolve(__dirname, 'client/styles')
+			Styles: path.resolve(__dirname, 'client/styles'),
 		},
 		extensions: ['.js', '.jsx', '.jpg', '.png'],
 	},
