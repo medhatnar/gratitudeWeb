@@ -3,7 +3,7 @@ import React from 'react'
 export const DownloadApp = () => {
   return (
     <div>
-      <p>coming soon</p>
+      <h1>Coming soon</h1>
     </div>
   )
   
