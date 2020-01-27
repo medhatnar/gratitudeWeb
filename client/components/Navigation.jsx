@@ -1,11 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Switch}  from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
+import About from './About'
+import DownloadApp from './DownloadApp'
 
 export const Navigation = props => {
+	// <Switch>
+	// 	<Route path="/about" component={About}></Route>
+	// 	<Route path="/download" component={DownloadApp}></Route>
+	// </Switch>
 	return (
+
+		
 		<header>
 			<NavStyles>
 				<span className='logo'>
@@ -16,14 +25,14 @@ export const Navigation = props => {
 				<nav>
 					<ul role='list' className='nav-options'>
 						<li>
-							<a href='#' className='about'>
+							<Link to='/about' className='about'>
 								About
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href='#' className='download'>
+							<Link to='/download' className='download'>
 								Download App
-							</a>
+							</Link>
 						</li>
 						<li>
 							<a href='#' className='login-logout'>
@@ -36,6 +45,8 @@ export const Navigation = props => {
 		</header>
 	);
 };
+
+
 
 const NavStyles = styled.div`
 	background: ${WHITE};
