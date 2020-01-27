@@ -1,11 +1,10 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
 import { Navigation } from 'Components/Navigation';
 import SplashImage from 'Assets/Red-Lotus';
 import { GlobalStyles } from 'Styles/globalStyles';
-import { GREY, DARK_BLUE, LIGHT_BLUE, WHITE, RED, YELLOW } from 'Styles/colors';
 import { Switch } from 'react-router-dom';
 import { About } from './About';
 import { DownloadApp } from './DownloadApp';
