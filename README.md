@@ -79,7 +79,17 @@ The user is then brought back to the home page where they can optionally select 
    3. Once the user enters the gratitude and hits submit, they will be rerouted to the home page if logged in. If not logged in, they will have the option to log in or return to the home page.
 
 
-For developers contributing, here is a more detailed technical spec: https://bit.ly/2RpQeYH
+### For developers contributing:
+
+* here is a more detailed technical spec: https://bit.ly/2RpQeYH
+
+* to start app for frontend development only: `npm run dev` from root folder.
+
+* to start app for backend development: `flask run` from server folder.
+
+
+
+
 
 
 
