@@ -29,7 +29,6 @@ export const Welcome = props => {
 		return (
 			<div>
 			<GlobalStyles />
-			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
@@ -48,7 +47,7 @@ export const Welcome = props => {
 		<>
 			<BrowserRouter>
 			<div>
-				<Navigation loggedIn={true} />
+				<Navigation loggedIn={false} />
 			</div>
 			
 			<div>
