@@ -24,7 +24,7 @@ export const Welcome = props => {
 	return (
 		<>
 			<GlobalStyles />
-			<Navigation loggedIn={false} />
+			<Navigation loggedIn={true} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
@@ -33,7 +33,7 @@ export const Welcome = props => {
 				<ContainerImage className='container-image' />
 			</ContainerWelcome>
 			<FooterStyles>
-				<p>An App made by Nar and Ry</p>
+				<p>An App made by Recursers</p>
 				<p>Idea from Malika</p>
 			</FooterStyles>
 		</>
