@@ -38,7 +38,7 @@ export const Navigation = props => {
 						)}
 						<li>
 							<a href='#' className='login-logout'>
-								{props.loggedIn ? 'Logout' : 'Login'}
+								{props.loggedIn ? 'Logout' : 'Login/Signup'}
 							</a>
 						</li>
 					</ul>

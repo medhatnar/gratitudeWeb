@@ -42,7 +42,7 @@ export const Welcome = props => {
 				<ContainerImage className='container-image' />
 			</ContainerWelcome>
 			<FooterStyles>
-				<p>An App made by Nar and Ry</p>
+				<p>An App made by Recursers</p>
 				<p>Idea from Malika</p>
 			</FooterStyles>
 		</>
