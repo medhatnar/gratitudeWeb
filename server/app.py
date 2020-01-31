@@ -15,4 +15,7 @@ app.register_blueprint(routes.landing_bp)
 db.init_app(app)
 migrate = Migrate(app, db)
 
-from models import User
+app.app_context().push()
+
+from models import User, Gratitude, Meditation
+

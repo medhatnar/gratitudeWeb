@@ -9,5 +9,4 @@ class Config:
 
     # Database
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + path.join(basedir, 'app.db')
-    SQLALCHEMY_TRACK_MODIFICATIONS = environ.get(
-        'SQLALCHEMY_TRACK_MODIFICATIONS')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
