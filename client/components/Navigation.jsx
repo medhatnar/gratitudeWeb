@@ -13,9 +13,9 @@ export const Navigation = props => {
 		<header>
 			<NavStyles>
 				<span className='logo'>
-					<a href='#'>
+					<Link to='/'>
 						<Logo />
-					</a>
+					</Link>
 				</span>
 				<nav>
 					<ul role='list' className='nav-options'>

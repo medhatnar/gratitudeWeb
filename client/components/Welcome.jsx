@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
 import { Navigation } from 'Components/Navigation';
@@ -25,15 +25,10 @@ const WelcomeText = props => {
 };
 
 export const Welcome = props => {
-	return (
-			
-		<>
-			<Switch>
-				<Route path='/about' component={About} />
-				<Route path='/download' component={DownloadApp} />
-			</Switch>
+	const welcomePage = () => {
+		return (
+			<div>
 			<GlobalStyles />
-			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
@@ -45,6 +40,22 @@ export const Welcome = props => {
 				<p>An App made by Recursers</p>
 				<p>Idea from Malika</p>
 			</FooterStyles>
+		</div>
+		)	
+	}
+	return (
+		<>
+			<BrowserRouter>
+			<div>
+				<Navigation loggedIn={false} />
+			</div>
+			
+			<div>
+				<Route path='/' component={welcomePage} exact/>
+				<Route path='/about' component={About} />
+				<Route path='/download' component={DownloadApp} />
+			</div>
+			</BrowserRouter>
 		</>
 	);
 };
