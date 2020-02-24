@@ -31,7 +31,7 @@ class User(UserMixin, db.Model):
     is_anonymous = db.Column(db.Boolean, default=True, nullable=False)
 
     gratitudes = db.relationship(
-        "Gratitude", backref=db.backref('author', lazy=True))
+        'Gratitude', backref=db.backref('author', lazy=True))
 
     def password_gen(self, word):
         self.hash = generate_password_hash(word)
@@ -50,7 +50,6 @@ class Gratitude(db.Model):
     __tablename__ = 'gratitude'
     id = db.Column(db.Integer,
                    primary_key=True)
-    title = db.Column(db.String(80), nullable=False)
     body = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime,
                            default=datetime.utcnow,
@@ -59,11 +58,11 @@ class Gratitude(db.Model):
                            nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     meditation_id = db.Column(db.Integer, db.ForeignKey(
-        'meditation.id'))
+        'meditation.id'),  nullable=True)
     meditation = db.relationship('Meditation', uselist=False)
 
     def __repr__(self):
-        return '<Gratitude {}>'.format(self.title)
+        return '<Gratitude {}>'.format(self.id)
 
 
 class Meditation(db.Model):
@@ -75,4 +74,4 @@ class Meditation(db.Model):
     link = db.Column(db.String(128), index=False, unique=True, nullable=False)
 
     def __repr__(self):
-        return '<Meditation {}>'.format(self.title)
+        return '<Meditation {}>'.format(self.name)

@@ -1,8 +1,8 @@
-"""empty message
+"""gratitudes table
 
-Revision ID: a5d2cec703e3
+Revision ID: 714eba49f1e2
 Revises: 
-Create Date: 2020-01-28 18:43:28.140440
+Create Date: 2020-02-24 13:18:29.354585
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a5d2cec703e3'
+revision = '714eba49f1e2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,13 +32,15 @@ def upgrade():
     sa.Column('email', sa.String(length=120), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('password_hash', sa.String(length=128), nullable=True),
+    sa.Column('is_authenticated', sa.Boolean(), nullable=False),
+    sa.Column('is_active', sa.Boolean(), nullable=False),
+    sa.Column('is_anonymous', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('username')
     )
     op.create_index(op.f('ix_user_email'), 'user', ['email'], unique=True)
     op.create_table('gratitude',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=80), nullable=False),
     sa.Column('body', sa.Text(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
