@@ -19,10 +19,10 @@ After the meditation timer is up, the user will be brought to a page which conta
 The user is then brought back to the home page where they can optionally select another meditation or take a look at their gratitude calendar, which shows all of their past daily gratitude entries.
 
 ## Design Specs:
-* Roughly this design: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
+* Roughly this design: https://dribbble.com/shots/7884860-Meditation-app-app-page-concept
 
 * Like the mobile version we want a welcome screen that will present 4 different white noise options: https://dribbble.com/shots/6754418-Meditation-App
-* Instead in the web version we will be following this design. Imagine the cards below being the 4 options we saw in the mobile version: https://dribbble.com/shots/7884860-Meditation-app-Landing-page-concept
+* Instead in the web version we will be following this design. Imagine the cards below being the 4 options we saw in the mobile version: https://dribbble.com/shots/7884860-Meditation-app-app-page-concept
 * The about link will lead to an about page that talks about the app.
 * The download app link will send the user to their app store of choice. 
 * The Login/Logout link will send user to login page, which will produce a modal to sign in or out.
@@ -44,7 +44,7 @@ The user is then brought back to the home page where they can optionally select 
 
 * Design Inspiration - https://dribbble.com/shots/6754418-Meditation-App
 
-* Landing Page:
+* app Page:
 
    1. Contains Logo Image
    2. Have a sign in form and an option to skip sign in.

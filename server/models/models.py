@@ -16,11 +16,11 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64),
                          index=False,
                          unique=True,
-                         nullable=False, default=None)
+                         nullable=False)
     email = db.Column(db.String(120),
                       index=True,
                       unique=True,
-                      nullable=False, default=None)
+                      nullable=False)
     created_at = db.Column(db.DateTime,
                            index=False,
                            nullable=False, default=datetime.utcnow)
@@ -57,7 +57,7 @@ class Gratitude(db.Model):
                            index=False,
                            unique=False,
                            nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     meditation_id = db.Column(db.Integer, db.ForeignKey(
         'meditation.id'))
     meditation = db.relationship('Meditation', uselist=False)

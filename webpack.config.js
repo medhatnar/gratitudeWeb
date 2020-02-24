@@ -28,7 +28,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './server/landing/templates/index.html',
+			template: './server/templates/index.html',
 		}),
 	],
 	resolve: {

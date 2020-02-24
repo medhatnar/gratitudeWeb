@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
-import { Navigation } from 'Components/Navigation';
+import { Navigation } from 'Components/Navigation'; // Server Side Render Nav bar and base container
 import SplashImage from 'Assets/Red-Lotus';
 import { GlobalStyles } from 'Styles/globalStyles';
 import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 
 const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
 const defaultInfoText =
-	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Start your day positively.';
+	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
 
 const WelcomeText = props => {
 	return (
@@ -24,7 +24,7 @@ export const Welcome = props => {
 	return (
 		<>
 			<GlobalStyles />
-			<Navigation loggedIn={true} />
+			<Navigation loggedIn={false} />
 			<ContainerWelcome className='container-welcome'>
 				<ContainerMain className='container-main'>
 					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
