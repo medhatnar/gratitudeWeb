@@ -8,5 +8,3 @@ app_bp = Blueprint('app_bp', __name__,
 @app_bp.route('/')
 def app():
     return render_template('index.html')
-
-# @navigation_bp

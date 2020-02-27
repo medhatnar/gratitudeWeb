@@ -1,8 +1,8 @@
-"""gratitudes table
+"""meditations table
 
-Revision ID: 714eba49f1e2
+Revision ID: 393566042d92
 Revises: 
-Create Date: 2020-02-24 13:18:29.354585
+Create Date: 2020-02-26 13:57:29.057997
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '714eba49f1e2'
+revision = '393566042d92'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,9 +21,7 @@ def upgrade():
     op.create_table('meditation',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=64), nullable=False),
-    sa.Column('link', sa.String(length=128), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('link'),
     sa.UniqueConstraint('name')
     )
     op.create_table('user',

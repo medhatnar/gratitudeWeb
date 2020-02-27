@@ -22,3 +22,12 @@ app.app_context().push()
 
 from models.models import User, Gratitude, Meditation
 
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User, 'Meditation': Meditation, 'Gratitude': Gratitude}
+
+from api.meditations import meditations_bp
+app.register_blueprint(meditations_bp)
+
+if __name__ == '__main__':
+    app.run()

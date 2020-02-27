@@ -1,3 +1,4 @@
+from flask import url_for
 from datetime import datetime
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -39,6 +40,15 @@ class User(UserMixin, db.Model):
     def password_validator(self, word):
         return check_password_hash(self.password_hash, word)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'gratitudes': self.gratitudes,
+        }
+        return data
+
     def get_id(self):
         return self.id
 
@@ -61,6 +71,16 @@ class Gratitude(db.Model):
         'meditation.id'),  nullable=True)
     meditation = db.relationship('Meditation', uselist=False)
 
+    def to_dict(self):
+        data = {
+            id: self.id,
+            body: self.body,
+            created_at: self.created_at,
+            user_id: self.user_id,
+            meditation_id: self.meditation_id
+        }
+        return data
+
     def __repr__(self):
         return '<Gratitude {}>'.format(self.id)
 
@@ -71,7 +91,13 @@ class Meditation(db.Model):
     id = db.Column(db.Integer,
                    primary_key=True)
     name = db.Column(db.String(64), index=False, unique=True, nullable=False)
-    link = db.Column(db.String(128), index=False, unique=True, nullable=False)
+
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name,
+        }
+        return data
 
     def __repr__(self):
         return '<Meditation {}>'.format(self.name)
