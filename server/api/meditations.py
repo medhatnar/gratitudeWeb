@@ -10,17 +10,15 @@ meditations_bp = Blueprint('meditations', __name__)
 def get_meditations():
     results = Meditation.query.all()
     meditations = list(map(Meditation.to_dict, results))
-    response_json = jsonify(
-        {meditation['id']: meditation['name'] for meditation in meditations})
-    return response_json
+    response_json = {meditation['name']: meditation
+                     for meditation in meditations}
+    return jsonify(response_json)
 
 
 @meditations_bp.route('/meditations/<string:name>', methods=['GET'])
 def get_meditation(name):
     s3 = boto3.resource('s3')
-    object = s3.Object(os.environ.get('AWS_URL'), f'{name}.mp3').get()
+    meditation_id = Meditation.query.filter_by(name=name).first().id
+    object = os.environ.get('AWS_URL').format(name)
 
-    print(object)
-   
-    
-    
+    return jsonify({'id': meditation_id, 'url': object})
