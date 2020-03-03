@@ -10,13 +10,13 @@ const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
 const defaultInfoText =
 	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
 
-const WelcomeText = props => {
+const GreetingText = props => {
 	return (
-		<WelcomeTextStyles>
+		<GreetingTextStyles>
 			<h2 className='app-title'>Daily Gratitude</h2>
 			<h1 className='greeting'>{props.greeting}</h1>
 			<p className='blurb'>{props.infoText}</p>
-		</WelcomeTextStyles>
+		</GreetingTextStyles>
 	);
 };
 
@@ -25,13 +25,13 @@ export const Welcome = props => {
 		<>
 			<GlobalStyles />
 			<Navigation loggedIn={false} />
-			<ContainerWelcome className='container-welcome'>
-				<ContainerMain className='container-main'>
-					<WelcomeText greeting={defaultGreeting} infoText={defaultInfoText} />
+			<MainContainer className='container-welcome'>
+				<ContentContainer className='container-main'>
+					<GreetingText greeting={defaultGreeting} infoText={defaultInfoText} />
 					<MenuCards {...props} />
-				</ContainerMain>
+				</ContentContainer>
 				<ContainerImage className='container-image' />
-			</ContainerWelcome>
+			</MainContainer>
 			<FooterStyles>
 				<p>An App made by Recursers</p>
 				<p>Idea from Malika</p>
@@ -40,7 +40,7 @@ export const Welcome = props => {
 	);
 };
 
-const ContainerWelcome = styled.div`
+const MainContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -54,7 +54,7 @@ const ContainerWelcome = styled.div`
 	}
 `;
 
-const ContainerMain = styled.div`
+const ContentContainer = styled.div`
 	align-items: center;
 	order: 2;
 	@media (min-width: 952px) {
@@ -83,7 +83,7 @@ const FooterStyles = styled.footer`
 	text-align: center;
 `;
 
-const WelcomeTextStyles = styled.div`
+export const GreetingTextStyles = styled.div`
 	padding: 2rem;
 	margin: 0 1em;
 	left: 25px;

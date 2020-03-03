@@ -39,6 +39,7 @@ const ContainerMenuStyles = styled.div`
 const CardStyles = styled.div`
 	width: 25%;
 	padding: 5em 1em 1em 1em;
+	cursor: pointer;
 	transition: ease-in-out 120ms;
 	
 	&:hover {
