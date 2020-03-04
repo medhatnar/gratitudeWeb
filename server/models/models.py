@@ -1,3 +1,4 @@
+import os
 from flask import url_for
 from datetime import datetime
 from flask_login import UserMixin
@@ -73,11 +74,11 @@ class Gratitude(db.Model):
 
     def to_dict(self):
         data = {
-            id: self.id,
-            body: self.body,
-            created_at: self.created_at,
-            user_id: self.user_id,
-            meditation_id: self.meditation_id
+            'id': self.id,
+            'body': self.body,
+            'created_at': self.created_at,
+            'user_id': self.user_id,
+            'meditation_id': self.meditation_id
         }
         return data
 
@@ -96,6 +97,8 @@ class Meditation(db.Model):
         data = {
             'id': self.id,
             'name': self.name,
+            'mp3': os.environ.get('AWS_MP3_URL').format(self.name),
+            'img': os.environ.get('AWS_IMG_URL').format(self.name),
         }
         return data
 

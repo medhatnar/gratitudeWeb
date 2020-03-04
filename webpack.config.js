@@ -5,13 +5,17 @@ module.exports = {
 	mode: 'development',
 	entry: './client',
 	output: {
-		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		filename: 'bundle.js',
+		publicPath: '/dist/',
 	},
 	devServer: {
-		contentBase: './dist',
+		contentBase: path.resolve(__dirname, 'dist'),
+		compress: true,
+		port: 8080,
+		hot: true,
 	},
+	devtool: 'inline-source-map',
 	module: {
 		rules: [
 			{
@@ -36,6 +40,7 @@ module.exports = {
 			Assets: path.resolve(__dirname, 'assets'),
 			Components: path.resolve(__dirname, 'client/components/'),
 			Styles: path.resolve(__dirname, 'client/styles'),
+			Utils: path.resolve(__dirname, 'client/utils'),
 		},
 		extensions: ['.js', '.jsx', '.jpg', '.png'],
 	},

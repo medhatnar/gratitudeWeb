@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
 import { Navigation } from 'Components/Navigation'; // Server Side Render Nav bar and base container
 import SplashImage from 'Assets/Red-Lotus';
 import { GlobalStyles } from 'Styles/globalStyles';
 import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
-
+import { reducer, SET_MEDITATIONS } from 'Utils/reducer';
 const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
 const defaultInfoText =
 	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
@@ -20,7 +20,29 @@ const GreetingText = props => {
 	);
 };
 
+let mp3 = 'https://dailygratitudemeditation.s3.amazonaws.com/nature.mp3';
 export const Welcome = props => {
+	const [state, dispatch] = useReducer(reducer, {
+		meditations: [],
+	});
+
+	useEffect(() => {
+		const meditations = fetch_meditations();
+		console.log(meditations);
+		dispatch({ action: SET_MEDITATIONS, payload: meditations});
+	}, []);
+ 
+	async function fetch_meditations() {
+		let meditations = await fetch('http://127.0.0.1:5000/meditations', {
+		   method: 'GET',
+		   mode: 'no-cors',
+		   'Access-Control-Allow-Origin': '*',
+		   cache: 'no-cache',
+		   headers: {
+			'Content-Type': 'application/json'},
+		});
+		return await meditations.json();
+	}
 	return (
 		<>
 			<GlobalStyles />
@@ -28,6 +50,10 @@ export const Welcome = props => {
 			<MainContainer className='container-welcome'>
 				<ContentContainer className='container-main'>
 					<GreetingText greeting={defaultGreeting} infoText={defaultInfoText} />
+					<div>
+					hello goodbye
+					<audio src={mp3}></audio>
+					</div>
 					<MenuCards {...props} />
 				</ContentContainer>
 				<ContainerImage className='container-image' />
@@ -74,7 +100,7 @@ const ContainerImage = styled.div`
 	@media (min-width: 952px) {
 		order: 2;
 		width: 100%;
-		padding-top:30em;
+		padding-top: 30em;
 	}
 `;
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
 import { LIGHT_BLUE, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 
@@ -7,18 +8,18 @@ export const MenuCards = ({
 	...props
 }) => {
 	return (
-		<ContainerMenuStyles className='container-menu'>
-			{cardInfo.map((info, cardNumber) => {
-				return (
-					<CardStyles key={cardNumber}>
-						<div className='card'>
-							<h3 className='card-number'>{`0${++cardNumber}`}</h3>
-							<h2 className='card-title'>{info}</h2>
-						</div>
-					</CardStyles>
-				);
-			})}
-		</ContainerMenuStyles>
+			<ContainerMenuStyles className='container-menu'>
+				{cardInfo.map((info, cardNumber) => {
+					return (
+						<CardStyles key={cardNumber}>
+							<div className='card'>
+								<h3 className='card-number'>{`0${++cardNumber}`}</h3>
+								<h2 className='card-title'>{info}</h2>
+							</div>
+						</CardStyles>
+					);
+				})}
+			</ContainerMenuStyles>
 	);
 };
 
@@ -41,7 +42,7 @@ const CardStyles = styled.div`
 	padding: 5em 1em 1em 1em;
 	cursor: pointer;
 	transition: ease-in-out 120ms;
-	
+
 	&:hover {
 		transition: ease-in-out 120ms;
 		transform: scale(1) translateY(-20px);
@@ -57,14 +58,14 @@ const CardStyles = styled.div`
 
 	&:nth-child(odd) {
 		background: ${DARK_BLUE};
-        
+
 		h3 {
 			color: ${WHITE};
 		}
 
-        h2 {
-            color: ${RED};
-        }
+		h2 {
+			color: ${RED};
+		}
 	}
 
 	&:first-child {
