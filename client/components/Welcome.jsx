@@ -91,6 +91,22 @@ export const Welcome = props => {
 	);
 };
 
+return (
+	<>
+		<BrowserRouter>
+		<div>
+			<Navigation loggedIn={false} />
+		</div>
+		
+		<div>
+			<Route path='/' component={welcomePage} exact/>
+			<Route path='/about' component={About} />
+			<Route path='/download' component={DownloadApp} />
+		</div>
+		</BrowserRouter>
+	</>
+);
+
 const MainContainer = styled.div`
 	position: relative;
 	display: flex;
