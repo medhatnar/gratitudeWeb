@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from config import Config
 from routes import routes
@@ -9,7 +10,7 @@ from routes import routes
 db = SQLAlchemy()
 
 app = Flask(__name__, instance_relative_config=False)
-
+CORS(app)
 app.config.from_object(Config)
 app.register_blueprint(routes.app_bp)
 

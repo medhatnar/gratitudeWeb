@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { MenuCards } from 'Components/MenuCards';
 import { Navigation } from 'Components/Navigation'; // Server Side Render Nav bar and base container
@@ -20,29 +20,58 @@ const GreetingText = props => {
 	);
 };
 
-let mp3 = 'https://dailygratitudemeditation.s3.amazonaws.com/nature.mp3';
+// const meditations = [
+// 	{
+// 		id: 1,
+// 		img:
+// 			'https://dailygratitudemeditation.s3.amazonaws.com/getting_started.jpg',
+// 		mp3:
+// 			'https://dailygratitudemeditation.s3.amazonaws.com/getting_started.mp3',
+// 		name: 'getting_started',
+// 	},
+// 	{
+// 		id: 2,
+// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/nature.jpg',
+// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/nature.mp3',
+// 		name: 'nature',
+// 	},
+// 	{
+// 		id: 3,
+// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.jpg',
+// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.mp3',
+// 		name: 'ocean',
+// 	},
+// 	{
+// 		id: 420,
+// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.jpg',
+// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.mp3',
+// 		name: 'lo-fi',
+// 	},
+// ];
+
 export const Welcome = props => {
 	const [state, dispatch] = useReducer(reducer, {
 		meditations: [],
 	});
 
 	useEffect(() => {
-		const meditations = fetch_meditations();
-		console.log(meditations);
-		dispatch({ action: SET_MEDITATIONS, payload: meditations});
+		fetch_meditations();
 	}, []);
- 
+
 	async function fetch_meditations() {
-		let meditations = await fetch('http://127.0.0.1:5000/meditations', {
-		   method: 'GET',
-		   mode: 'no-cors',
-		   'Access-Control-Allow-Origin': '*',
-		   cache: 'no-cache',
-		   headers: {
-			'Content-Type': 'application/json'},
+		let meditationReq = await fetch('http://localhost:5000/meditations', {
+			method: 'GET',
+			'Access-Control-Allow-Origin': '*',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
 		});
-		return await meditations.json();
+		const meditations = await meditationReq.json();
+		console.log(meditations);
+		dispatch({ action: SET_MEDITATIONS, payload: meditations });
 	}
+
 	return (
 		<>
 			<GlobalStyles />
@@ -50,11 +79,7 @@ export const Welcome = props => {
 			<MainContainer className='container-welcome'>
 				<ContentContainer className='container-main'>
 					<GreetingText greeting={defaultGreeting} infoText={defaultInfoText} />
-					<div>
-					hello goodbye
-					<audio src={mp3}></audio>
-					</div>
-					<MenuCards {...props} />
+					<MenuCards meditations={state.meditations} />
 				</ContentContainer>
 				<ContainerImage className='container-image' />
 			</MainContainer>

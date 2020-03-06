@@ -8,9 +8,8 @@ meditations_bp = Blueprint('meditations', __name__)
 def get_meditations():
     results = Meditation.query.all()
     meditations = list(map(Meditation.to_dict, results))
-    response_json = { meditation['name']: meditation for meditation in meditations }
-    print(response_json)
-    return jsonify(response_json)
+
+    return jsonify(meditations)
 
 
 @meditations_bp.route('/meditations/<string:name>', methods=['GET'])

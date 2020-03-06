@@ -1,30 +1,41 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useParams,
+} from 'react-router-dom';
 import styled from 'styled-components';
-import { LIGHT_BLUE, DARK_BLUE, WHITE, RED } from 'Styles/colors';
+import { Meditation } from 'Components/Meditation';
+import { LIGHT_BLUE, DARK_BLUE, WHITE, RED, BLACK } from 'Styles/colors';
 
-export const MenuCards = ({
-	cardInfo = ['Get Started', 'Ocean', 'Nature', 'White Noise', 'Lo-fi'],
-	...props
-}) => {
+export const MenuCards = ({ meditations, ...props }) => {
 	return (
+		<Router>
 			<ContainerMenuStyles className='container-menu'>
-				{cardInfo.map((info, cardNumber) => {
+				{meditations.map((meditation, cardNumber) => {
 					return (
-						<CardStyles key={cardNumber}>
-							<div className='card'>
-								<h3 className='card-number'>{`0${++cardNumber}`}</h3>
-								<h2 className='card-title'>{info}</h2>
-							</div>
+						<CardStyles key={meditation.id}>
+							<Link to={`/meditation/${meditation.name}`}>
+								<div className='card'>
+									<h3 className='card-number'>{`0${++cardNumber}`}</h3>
+									<h2 className='card-title'>{meditation.name}</h2>
+								</div>
+							</Link>
+							<Switch>
+								<Route path='/:name' children={<Meditation />} />
+							</Switch>
 						</CardStyles>
 					);
 				})}
 			</ContainerMenuStyles>
+		</Router>
 	);
 };
 
 const ContainerMenuStyles = styled.div`
-	background: ${RED};
+	background: none;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
 	position: relative;
@@ -39,9 +50,17 @@ const ContainerMenuStyles = styled.div`
 
 const CardStyles = styled.div`
 	width: 25%;
+	display: block;
 	padding: 5em 1em 1em 1em;
 	cursor: pointer;
 	transition: ease-in-out 120ms;
+	min-width: 5vw;
+	word-wrap: wrap;
+	overflow-wrap: break-word;
+
+	a {
+		text-decoration: none;
+	}
 
 	&:hover {
 		transition: ease-in-out 120ms;
@@ -53,6 +72,10 @@ const CardStyles = styled.div`
 
 		h3 {
 			color: ${RED};
+		}
+
+		h2 {
+			color: ${BLACK}
 		}
 	}
 
