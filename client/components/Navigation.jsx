@@ -8,19 +8,17 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
-import { Home } from 'Components/Welcome';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
 
 export const Navigation = props => {
 	return (
 		<header>
 			<NavStyles>
-				<BrowserRouter>
-					<span className='logo'>
-						<Link to={<Home />}>
+					<Link to={{ pathname: '/'}}>
+						<span className='logo'>
 							<Logo />
-						</Link>
-					</span>
+						</span>
+					</Link>
 					<nav>
 						<ul role='list' className='nav-options'>
 							<li>
@@ -47,7 +45,6 @@ export const Navigation = props => {
 							</li>
 						</ul>
 					</nav>
-				</BrowserRouter>
 			</NavStyles>
 		</header>
 	);

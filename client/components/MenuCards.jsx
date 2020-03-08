@@ -9,7 +9,7 @@ export const MenuCards = ({ meditations, ...props }) => {
 			{meditations.map((meditation, cardNumber) => {
 				return (
 					<CardStyles key={meditation.id}>
-						<Link to={`/meditation/${meditation.name}`}>
+						<Link to={{ pathname:`/meditation/${meditation.name}`, state:  { currentMeditation: meditation }}}>
 							<div className='card'>
 								<h3 className='card-number'>{`0${++cardNumber}`}</h3>
 								<h2 className='card-title'>{meditation.name}</h2>

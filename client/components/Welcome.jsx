@@ -19,6 +19,7 @@ const defaultInfoText =
 	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
 
 export const Home = props => {
+	// set default values
 	return (
 		<>
 			<ContentContainer className='container-main'>
@@ -60,25 +61,24 @@ export const Welcome = props => {
 		<>
 			<BrowserRouter>
 				<GlobalStyles />
-				<Navigation loggedIn={false} />
+				<Navigation loggedIn={true} />
 				<MainContainer className='container-welcome'>
 					<Switch>
 						<Route
-							exact
-							path='/'
-							children={
-								<Home
-									meditations={state.meditations}
-									greeting={defaultGreeting}
-									infoText={defaultInfoText}
-								/>
-							}
+							path='/meditation/:name'
+							children={<Meditation meditations={state.meditations} />}
 						/>
-						<Route path='/meditation/:name' children={<Meditation meditations={state.meditations}/>} />
 						<Route path='/about' children={<></>} />
 						<Route path='/downloadApp' children={<></>} />
 						<Route path='/gratitudes' children={<></>} />
 						<Route path='/loginLogout' children={<></>} />
+						<Route exact path='/'>
+							<Home
+								meditations={state.meditations}
+								greeting={defaultGreeting}
+								infoText={defaultInfoText}
+							/>
+						</Route>
 					</Switch>
 				</MainContainer>
 				<FooterStyles>

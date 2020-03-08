@@ -1,23 +1,16 @@
 import React, { useEffect, useState, useReducer } from 'react';
-import {
-	BrowserRouter,
-	Switch,
-	Route,
-	Link,
-	useParams,
-} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { reducer } from 'Utils/reducer';
 
-export const Meditation = props => {
+export const Meditation = ({ meditations, ...props }) => {
 	let audio;
-	let { name } = useParams();
+	let { state, pathname } = useLocation();
+	console.log(state, meditations, meditations.filter(med => med.name === pathname.substr(pathname.lastIndexOf('/')))[0])
+	let currentMeditation = !state ? state.currentMeditation : meditations.filter(med => med.name === pathname.substr(pathname.lastIndexOf('/')))[0];
 	const [duration, setDuration] = useState(5);
-	const [meditation, setMeditation] = useState(
-		props.meditations.filter(meditation => meditation.name === name)[0]
-	);
+	const [meditation, updateMeditation] = useState(state.currentMeditation);
 
-	function fadeInOut(interval=0.01) {
+	function fadeInOut(interval = 0.01) {
 		if (audio) {
 			let newVolume = audio.volume;
 			const changeVol = setInterval(() => {
@@ -29,7 +22,7 @@ export const Meditation = props => {
 					audio.volume = my_math;
 					newVolume += interval;
 				}
-			}, 40);
+			}, 30);
 		} else {
 			audio = new Audio(meditation.mp3);
 			audio.addEventListener('timeupdate', event => {
