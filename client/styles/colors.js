@@ -6,4 +6,4 @@ export const RED = "#eb6157";
 export const TEAL = "#68AFCD";
 export const WHITE = "#f2f2f2";
 export const YELLOW = "#DCAB4E";
-export const BLACK = "#FFF"
+export const BLACK = "#000"

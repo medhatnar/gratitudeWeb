@@ -14,6 +14,7 @@ module.exports = {
 		compress: true,
 		port: 8080,
 		hot: true,
+		historyApiFallback: true,
 	},
 	devtool: 'inline-source-map',
 	module: {
@@ -31,9 +32,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: './server/templates/index.html',
-		}),
+		new HtmlWebpackPlugin({ template: './server/templates/index.html'}),
 	],
 	resolve: {
 		alias: {

@@ -1,43 +1,53 @@
 import React from 'react';
+import {
+	BrowserRouter,
+	Switch,
+	Route,
+	Link,
+	useParams,
+} from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
+import { Home } from 'Components/Welcome';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
 
 export const Navigation = props => {
 	return (
 		<header>
 			<NavStyles>
-				<span className='logo'>
-					<a href='#'>
-						<Logo />
-					</a>
-				</span>
-				<nav>
-					<ul role='list' className='nav-options'>
-						<li>
-							<a href='#' className='about'>
-								About
-							</a>
-						</li>
-						<li>
-							<a href='#' className='download'>
-								Download App
-							</a>
-						</li>
-						{props.loggedIn && (
+				<BrowserRouter>
+					<span className='logo'>
+						<Link to={<Home />}>
+							<Logo />
+						</Link>
+					</span>
+					<nav>
+						<ul role='list' className='nav-options'>
 							<li>
-								<a href='#' className='calendar'>
-									Calendar
-								</a>
+								<Link className='about' to={<></>}>
+									About
+								</Link>
 							</li>
-						)}
-						<li>
-							<a href='#' className='login-logout'>
-								{props.loggedIn ? 'Logout' : 'Login/Signup'}
-							</a>
-						</li>
-					</ul>
-				</nav>
+							<li>
+								<Link className='download' to={<></>}>
+									Download App
+								</Link>
+							</li>
+							{props.loggedIn && (
+								<li>
+									<Link className='calendar' to={<></>}>
+										Calendar
+									</Link>
+								</li>
+							)}
+							<li>
+								<Link className='login-logout' to={<></>}>
+									{props.loggedIn ? 'Logout' : 'Login/Signup'}
+								</Link>
+							</li>
+						</ul>
+					</nav>
+				</BrowserRouter>
 			</NavStyles>
 		</header>
 	);

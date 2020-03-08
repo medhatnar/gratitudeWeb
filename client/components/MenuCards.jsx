@@ -1,36 +1,24 @@
-import React from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useParams,
-} from 'react-router-dom';
+import React, { useReducer } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Meditation } from 'Components/Meditation';
 import { LIGHT_BLUE, DARK_BLUE, WHITE, RED, BLACK } from 'Styles/colors';
 
 export const MenuCards = ({ meditations, ...props }) => {
 	return (
-		<Router>
-			<ContainerMenuStyles className='container-menu'>
-				{meditations.map((meditation, cardNumber) => {
-					return (
-						<CardStyles key={meditation.id}>
-							<Link to={`/meditation/${meditation.name}`}>
-								<div className='card'>
-									<h3 className='card-number'>{`0${++cardNumber}`}</h3>
-									<h2 className='card-title'>{meditation.name}</h2>
-								</div>
-							</Link>
-							<Switch>
-								<Route path='/:name' children={<Meditation />} />
-							</Switch>
-						</CardStyles>
-					);
-				})}
-			</ContainerMenuStyles>
-		</Router>
+		<ContainerMenuStyles className='container-menu'>
+			{meditations.map((meditation, cardNumber) => {
+				return (
+					<CardStyles key={meditation.id}>
+						<Link to={`/meditation/${meditation.name}`}>
+							<div className='card'>
+								<h3 className='card-number'>{`0${++cardNumber}`}</h3>
+								<h2 className='card-title'>{meditation.name}</h2>
+							</div>
+						</Link>
+					</CardStyles>
+				);
+			})}
+		</ContainerMenuStyles>
 	);
 };
 
@@ -60,6 +48,7 @@ const CardStyles = styled.div`
 
 	a {
 		text-decoration: none;
+		padding: 10em;
 	}
 
 	&:hover {
@@ -75,7 +64,7 @@ const CardStyles = styled.div`
 		}
 
 		h2 {
-			color: ${BLACK}
+			color: ${BLACK};
 		}
 	}
 

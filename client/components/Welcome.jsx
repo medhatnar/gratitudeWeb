@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import { MenuCards } from 'Components/MenuCards';
+import {
+	BrowserRouter,
+	Switch,
+	Route,
+	Link,
+	useParams,
+} from 'react-router-dom';
 import { Navigation } from 'Components/Navigation'; // Server Side Render Nav bar and base container
+import { MenuCards } from 'Components/MenuCards';
+import { Meditation } from 'Components/Meditation';
 import SplashImage from 'Assets/Red-Lotus';
 import { GlobalStyles } from 'Styles/globalStyles';
 import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
@@ -10,44 +18,21 @@ const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
 const defaultInfoText =
 	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
 
-const GreetingText = props => {
+export const Home = props => {
 	return (
-		<GreetingTextStyles>
-			<h2 className='app-title'>Daily Gratitude</h2>
-			<h1 className='greeting'>{props.greeting}</h1>
-			<p className='blurb'>{props.infoText}</p>
-		</GreetingTextStyles>
+		<>
+			<ContentContainer className='container-main'>
+				<GreetingTextStyles>
+					<h2 className='app-title'>Daily Gratitude</h2>
+					<h1 className='greeting'>{props.greeting}</h1>
+					<p className='blurb'>{props.infoText}</p>
+				</GreetingTextStyles>
+				<MenuCards meditations={props.meditations} />
+			</ContentContainer>
+			<ContainerImage className='container-image' />
+		</>
 	);
 };
-
-// const meditations = [
-// 	{
-// 		id: 1,
-// 		img:
-// 			'https://dailygratitudemeditation.s3.amazonaws.com/getting_started.jpg',
-// 		mp3:
-// 			'https://dailygratitudemeditation.s3.amazonaws.com/getting_started.mp3',
-// 		name: 'getting_started',
-// 	},
-// 	{
-// 		id: 2,
-// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/nature.jpg',
-// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/nature.mp3',
-// 		name: 'nature',
-// 	},
-// 	{
-// 		id: 3,
-// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.jpg',
-// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.mp3',
-// 		name: 'ocean',
-// 	},
-// 	{
-// 		id: 420,
-// 		img: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.jpg',
-// 		mp3: 'https://dailygratitudemeditation.s3.amazonaws.com/ocean.mp3',
-// 		name: 'lo-fi',
-// 	},
-// ];
 
 export const Welcome = props => {
 	const [state, dispatch] = useReducer(reducer, {
@@ -68,44 +53,42 @@ export const Welcome = props => {
 			},
 		});
 		const meditations = await meditationReq.json();
-		console.log(meditations);
 		dispatch({ action: SET_MEDITATIONS, payload: meditations });
 	}
 
 	return (
 		<>
-			<GlobalStyles />
-			<Navigation loggedIn={false} />
-			<MainContainer className='container-welcome'>
-				<ContentContainer className='container-main'>
-					<GreetingText greeting={defaultGreeting} infoText={defaultInfoText} />
-					<MenuCards meditations={state.meditations} />
-				</ContentContainer>
-				<ContainerImage className='container-image' />
-			</MainContainer>
-			<FooterStyles>
-				<p>An App made by Recursers</p>
-				<p>Idea from Malika</p>
-			</FooterStyles>
+			<BrowserRouter>
+				<GlobalStyles />
+				<Navigation loggedIn={false} />
+				<MainContainer className='container-welcome'>
+					<Switch>
+						<Route
+							exact
+							path='/'
+							children={
+								<Home
+									meditations={state.meditations}
+									greeting={defaultGreeting}
+									infoText={defaultInfoText}
+								/>
+							}
+						/>
+						<Route path='/meditation/:name' children={<Meditation meditations={state.meditations}/>} />
+						<Route path='/about' children={<></>} />
+						<Route path='/downloadApp' children={<></>} />
+						<Route path='/gratitudes' children={<></>} />
+						<Route path='/loginLogout' children={<></>} />
+					</Switch>
+				</MainContainer>
+				<FooterStyles>
+					<p>An App made by Recursers</p>
+					<p>Idea from Malika</p>
+				</FooterStyles>
+			</BrowserRouter>
 		</>
 	);
 };
-
-return (
-	<>
-		<BrowserRouter>
-		<div>
-			<Navigation loggedIn={false} />
-		</div>
-		
-		<div>
-			<Route path='/' component={welcomePage} exact/>
-			<Route path='/about' component={About} />
-			<Route path='/download' component={DownloadApp} />
-		</div>
-		</BrowserRouter>
-	</>
-);
 
 const MainContainer = styled.div`
 	position: relative;
