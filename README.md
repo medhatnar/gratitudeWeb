@@ -8,7 +8,7 @@
 
 
 ## Overview:
-Daily Gratitude is a simple app created to help the user start their day on a calming and positive note.
+Daily Gratitude is an app created to help the user start their day on a calming and positive note.
 
 Upon opening the app the user is prompted to choose between one of various meditation themes, such as Ocean, Nature, White Noise, or even Guided Meditation for beginners.
 
