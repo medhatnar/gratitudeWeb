@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
 	BrowserRouter,
 	Switch,
@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from 'Components/Logo';
+import { makeBlink, stopBlink } from 'bbblink';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
 
 export const Navigation = props => {

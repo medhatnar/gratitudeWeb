@@ -11,7 +11,7 @@ import { Navigation } from 'Components/Navigation'; // Server Side Render Nav ba
 import { MenuCards } from 'Components/MenuCards';
 import { Meditation } from 'Components/Meditation';
 import SplashImage from 'Assets/Red-Lotus';
-import { GlobalStyles } from 'Styles/globalStyles';
+import { MainDescriptionStyles, GlobalStyles } from 'Styles/globalStyles';
 import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
 import { reducer, SET_MEDITATIONS } from 'Utils/reducer';
 const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
@@ -23,11 +23,11 @@ export const Home = props => {
 	return (
 		<>
 			<ContentContainer className='container-main'>
-				<GreetingTextStyles>
-					<h2 className='app-title'>Daily Gratitude</h2>
-					<h1 className='greeting'>{props.greeting}</h1>
+				<MainDescriptionStyles>
+					<h2 className='title'>Daily Gratitude</h2>
+					<h1 className='headline'>{props.greeting}</h1>
 					<p className='blurb'>{props.infoText}</p>
-				</GreetingTextStyles>
+				</MainDescriptionStyles>
 				<MenuCards meditations={props.meditations} />
 			</ContentContainer>
 			<ContainerImage className='container-image' />
@@ -131,25 +131,4 @@ const ContainerImage = styled.div`
 const FooterStyles = styled.footer`
 	display: block;
 	text-align: center;
-`;
-
-export const GreetingTextStyles = styled.div`
-	padding: 2rem;
-	margin: 0 1em;
-	left: 25px;
-	@media (min-width: 640px) {
-		padding: 5rem;
-	}
-
-	.app-title {
-		color: ${RED};
-	}
-
-	.greeting {
-		color: ${DARK_BLUE};
-	}
-
-	.blurb {
-		color: ${GREY};
-	}
 `;
