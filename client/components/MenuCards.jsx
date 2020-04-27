@@ -9,7 +9,11 @@ export const MenuCards = ({ meditations, ...props }) => {
 			{meditations.map((meditation, cardNumber) => {
 				return (
 					<CardStyles key={meditation.id}>
-						<Link to={{ pathname:`/meditation/${meditation.name}`, state:  { currentMeditation: meditation }}}>
+						<Link
+							to={{
+								pathname: `/meditation/${meditation.name}`,
+								state: { currentMeditation: meditation },
+							}}>
 							<div className='card'>
 								<h3 className='card-number'>{`0${++cardNumber}`}</h3>
 								<h2 className='card-title'>{meditation.name}</h2>
@@ -24,33 +28,41 @@ export const MenuCards = ({ meditations, ...props }) => {
 
 const ContainerMenuStyles = styled.div`
 	background: none;
+	bottom: 0;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
-	position: relative;
-	bottom: 0;
+	position: absolute;
 	display: flex;
+	width: 100%;
 
 	@media (min-width: 952px) {
-		position: absolute;
-		right: 35%;
+		right: 25%;
+		width: 50%;
 	}
 `;
 
 const CardStyles = styled.div`
 	width: 25%;
 	display: block;
-	padding: 5em 1em 1em 1em;
 	cursor: pointer;
 	transition: ease-in-out 120ms;
-	min-width: 5vw;
+	min-width: 10vw;
+	min-height: 10vh;
 	word-wrap: wrap;
 	overflow-wrap: break-word;
+	padding: 5em 1em 1em 1em;
 
 	a {
 		text-decoration: none;
-		padding: 10em;
+		padding: 0rem;
 	}
 
+	@media (min-width: 952px) {
+		a {
+			padding: 5rem;
+		}
+	}
+	
 	&:hover {
 		transition: ease-in-out 120ms;
 		transform: scale(1) translateY(-20px);

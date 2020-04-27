@@ -16,8 +16,8 @@ export const Navigation = props => {
 		<header>
 			<NavStyles>
 					<Link to={{ pathname: '/'}}>
-						<span className='logo'>
-							<Logo />
+						<span className='lotus'>
+							<Lotus/>
 						</span>
 					</Link>
 					<nav>

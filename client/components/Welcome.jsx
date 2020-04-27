@@ -1,37 +1,35 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import {
-	BrowserRouter,
-	Switch,
-	Route,
-	Link,
-	useParams,
-} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navigation } from 'Components/Navigation'; // Server Side Render Nav bar and base container
 import { MenuCards } from 'Components/MenuCards';
 import { Meditation } from 'Components/Meditation';
+import { MainDescription } from 'Components/SharedComponents/shared';
 import SplashImage from 'Assets/Red-Lotus';
-import { MainDescriptionStyles, GlobalStyles } from 'Styles/globalStyles';
-import { GREY, DARK_BLUE, WHITE, RED } from 'Styles/colors';
+import { GlobalStyles } from 'Styles/globalStyles';
+import { WHITE } from 'Styles/colors';
 import { reducer, SET_MEDITATIONS } from 'Utils/reducer';
-const defaultGreeting = 'Take a minute to meditate and a moment to reflect';
-const defaultInfoText =
+const defaultTitle = 'Daily Gratitude';
+const defaultHeadline = 'Take a minute to meditate and a moment to reflect';
+const defaultBlurb =
 	'An application with various calming sounds to meditate to and a personal diary of all you are grateful for. Select a meditation theme below when ready.';
 
 export const Home = props => {
 	// set default values
 	return (
-		<>
+		<HomeStyles>
 			<ContentContainer className='container-main'>
-				<MainDescriptionStyles>
-					<h2 className='title'>Daily Gratitude</h2>
-					<h1 className='headline'>{props.greeting}</h1>
-					<p className='blurb'>{props.infoText}</p>
-				</MainDescriptionStyles>
+				<GreetingStyles>
+					<MainDescription
+						title={defaultTitle}
+						headline={defaultHeadline}
+						blurb={defaultBlurb}
+					/>
+				</GreetingStyles>
 				<MenuCards meditations={props.meditations} />
 			</ContentContainer>
 			<ContainerImage className='container-image' />
-		</>
+		</HomeStyles>
 	);
 };
 
@@ -62,7 +60,6 @@ export const Welcome = props => {
 			<BrowserRouter>
 				<GlobalStyles />
 				<Navigation loggedIn={true} />
-				<MainContainer className='container-welcome'>
 					<Switch>
 						<Route
 							path='/meditation/:name'
@@ -73,14 +70,9 @@ export const Welcome = props => {
 						<Route path='/gratitudes' children={<></>} />
 						<Route path='/loginLogout' children={<></>} />
 						<Route exact path='/'>
-							<Home
-								meditations={state.meditations}
-								greeting={defaultGreeting}
-								infoText={defaultInfoText}
-							/>
+							<Home meditations={state.meditations} />
 						</Route>
 					</Switch>
-				</MainContainer>
 				<FooterStyles>
 					<p>An App made by Recursers</p>
 					<p>Idea from Malika</p>
@@ -90,23 +82,33 @@ export const Welcome = props => {
 	);
 };
 
-const MainContainer = styled.div`
+const HomeStyles = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	min-height: 40rem;
+	height: 80vh;
 	width: 100%;
 	background: ${WHITE};
 	border-bottom-left-radius: 1em;
 	border-bottom-right-radius: 1em;
+
 	@media (min-width: 952px) {
 		flex-direction: row;
+		height: 90vh;
 	}
+`;
+
+export const GreetingStyles = styled.div`
+	padding: 2rem;
+	margin: 0 1em;
+	left: 25px;
 `;
 
 const ContentContainer = styled.div`
 	align-items: center;
 	order: 2;
+	justify-content: space-around;
 	@media (min-width: 952px) {
 		order: 1;
 		display: flex;
@@ -131,4 +133,8 @@ const ContainerImage = styled.div`
 const FooterStyles = styled.footer`
 	display: block;
 	text-align: center;
+	margin: 1em;
+	@media (min-width: 952px) {
+		margin: 0.5em;
+	}
 `;
