@@ -3,11 +3,9 @@ import React from "react";
 const Lotus = (props) => (
   <svg
     id="Layer_1"
-    x={0}
-    y={0}
-    enableBackground="new 0 0 460 431"
     viewBox="0 0 460 431"
-    xmlSpace="preserve"
+    width="65px"
+    height="65px"
     {...props}
   >
     <style>

@@ -7,8 +7,7 @@ import {
 	useParams,
 } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from 'Components/Logo';
-import { makeBlink, stopBlink } from 'bbblink';
+import Lotus from 'Components/Lotus';
 import { GREY, WHITE, YELLOW } from 'Styles/colors';
 
 export const Navigation = props => {
