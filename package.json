@@ -14,7 +14,7 @@
 		"type": "git",
 		"url": "git+https://github.com/narmander/gratitudeWeb.git"
 	},
-	"author": "nar and ry",
+	"author": "nar",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/narmander/gratitudeWeb/issues"

@@ -2,11 +2,30 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { WHITE } from 'Styles/colors';
 
-export const AudioPlayer = ({ duration = 300, media }) => {
+export const AudioPlayer = ({ duration, media, ...props }) => {
+	console.log('at the top', duration);
 	const [audio, updateAudio] = useState(new Audio(media));
-    const [audioPlaying, updateAudioStatus] = useState(false);
-    const [iconClass, toggleIconClass] = useState('play');
-    const [timer, updateTimer] = useState('00:00');
+	const [audioPlaying, updateAudioStatus] = useState(false);
+	const [iconClass, toggleIconClass] = useState('play');
+	const [timer, updateTimer] = useState('00:00');
+
+	useEffect(() => {
+		audio.addEventListener('timeupdate', event => {
+			let minutes = Math.floor(audio.currentTime / 60);
+			minutes = minutes >= 10 ? minutes : '0' + minutes;
+			let seconds = Math.floor(audio.currentTime % 60);
+			seconds = seconds >= 10 ? seconds : '0' + seconds;
+			console.log(audio.currentTime);
+
+			updateTimer(`${minutes}:${seconds}`);
+
+			if (audio.currentTime >= duration) {
+				//duration here never updates -- this is always default
+				console.log('duraaation', duration);
+				fadeInOut(-0.01);
+			}
+		});
+	},[audio.currentTime]);
 
 	audio.addEventListener('play', e => {
 		fadeInOut(0.01);
@@ -20,21 +39,7 @@ export const AudioPlayer = ({ duration = 300, media }) => {
 	audio.addEventListener('pause', e => {
 		toggleIconClass('play');
 		updateAudioStatus(false);
-    });
-    
-	audio.addEventListener('timeupdate', event => {
-        let minutes = Math.floor(audio.currentTime/60);
-        minutes = minutes >= 10 ? minutes : '0' + minutes;
-        let seconds = Math.floor(audio.currentTime % 60);
-        seconds = seconds >= 10 ? seconds : '0' + seconds;
-
-        updateTimer(`${minutes}:${seconds}`);
-
-		console.log('The currentTime attribute:', audio.currentTime);
-		if (audio.currentTime >= duration) {
-			fadeInOut(-0.01);
-		}
-    });
+	});
 
 	function fadeInOut(interval) {
 		let newVolume = audio.volume;
@@ -52,7 +57,9 @@ export const AudioPlayer = ({ duration = 300, media }) => {
 
 	return (
 		<AudioStyles>
-			<h1 className='clock'>{timer}</h1>
+			<div className='clock'>
+				<h1>{timer}</h1>
+			</div>
 			<button
 				className='audio-button'
 				onClick={() => {
@@ -72,11 +79,12 @@ const AudioStyles = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* align-items: center; */
+	align-items: center;
 	font-size: 5rem;
 
 	.clock {
-		background: rgba(255, 255, 255, 0.25);
+		background: rgba(255, 255, 255, 0.25) no-repeat fixed center;
+		background-size: 1000px;
 		border: outset 0.1em rgba(255, 255, 255, 0.25);
 		border-radius: 0.15em;
 	}

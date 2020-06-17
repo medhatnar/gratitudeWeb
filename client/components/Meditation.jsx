@@ -5,10 +5,7 @@ import { MainDescription } from 'Components/SharedComponents/shared';
 import { DARK_BLUE, WHITE, RED } from 'Styles/colors';
 import { AudioPlayer } from 'Components/AudioPlayer';
 
-const fiveMin = 300;
-
 export const Meditation = ({ meditations, ...props }) => {
-	let audio;
 	let { state, pathname } = useLocation();
 	let currentMeditation = !state
 		? state.currentMeditation
@@ -16,21 +13,19 @@ export const Meditation = ({ meditations, ...props }) => {
 				med => med.name === pathname.substr(pathname.lastIndexOf('/'))
 		  )[0];
 	const [meditation, updateMeditation] = useState(state.currentMeditation);
-	const [duration, setDuration] = useState(300);
+	const [duration, setDuration] = useState(5);
 
-	function formatTimer() {
-		let minutes = Math.floor(audio.currentTime / 60);
-		minutes = minutes >= 10 ? minutes : '0' + minutes;
-		let seconds = Math.floor(audio.currentTime % 60);
-		seconds = seconds >= 10 ? seconds : '0' + seconds;
 
-		return `${minutes}:${seconds}`;
-	}
 
 	function setValidDuration(minutes) {
-		if (minutes > 10) setDuration(600);
-		else if (minutes < 1) setDuration(60);
-		else setDuration(minutes * 60);
+		console.log('minutes', minutes);
+		if (minutes > 10) {
+			setDuration(600);
+		} else if (minutes < 1) {
+			setDuration(60);
+		} else {
+			setDuration(minutes * 60);
+		}
 	}
 
 	return (
@@ -56,7 +51,7 @@ export const Meditation = ({ meditations, ...props }) => {
 				<UnderlayStyles
 					meditationBackground={meditation.img}
 					className='meditation-playing'>
-					<AudioPlayer duration={duration} media={meditation.mp3}/>
+					<AudioPlayer duration={duration} media={meditation.mp3} />
 				</UnderlayStyles>
 			</TimerPageStyles>
 		</>
@@ -69,6 +64,7 @@ const AudioStyles = styled.div`
 
 const TimerPageStyles = styled.div`
 	display: flex;
+	background: ${WHITE};
 	flex-direction: column;
 	/* transition: background 1s ease-in-out; */
 	color: ${WHITE};
@@ -77,7 +73,6 @@ const TimerPageStyles = styled.div`
 `;
 
 const OverlayStyles = styled.div`
-	background: ${RED};
 	word-break: normal;
 	width: 100%;
 

@@ -74,7 +74,7 @@ export const Welcome = props => {
 						</Route>
 					</Switch>
 				<FooterStyles>
-					<p>An App made by Recursers</p>
+					<p>An App made by Nar</p>
 					<p>Idea from Malika</p>
 				</FooterStyles>
 			</BrowserRouter>
