@@ -4,26 +4,28 @@
 	"description": "home made grat app",
 	"main": "index.jsx",
 	"scripts": {
+		"start": "cd server flask run",
 		"test": "jest",
 		"build": "webpack",
 		"webpack-dev-server": "webpack-dev-server",
-		"dev": "npm run webpack-dev-server -- --env.mode development --hot",
+		"dev": "npm run webpack-dev-server -- --env.mode development --hot --open",
 		"dev:debug": "npm run debug -- --env.mode development"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/narmander/gratitudeWeb.git"
 	},
-	"author": "nar and ry",
+	"author": "nar",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/narmander/gratitudeWeb/issues"
 	},
 	"homepage": "https://github.com/narmander/gratitudeWeb#readme",
 	"devDependencies": {
-		"@babel/core": "^7.7.7",
-		"@babel/preset-env": "^7.7.7",
+		"@babel/core": "^7.8.6",
+		"@babel/preset-env": "^7.8.6",
 		"@babel/preset-react": "^7.7.4",
+		"@babel/register": "^7.8.6",
 		"babel-loader": "^8.0.6",
 		"html-webpack-plugin": "^3.2.0",
 		"url-loader": "^3.0.0",
@@ -32,8 +34,10 @@
 		"webpack-dev-server": "^3.10.1"
 	},
 	"dependencies": {
+		"bbblink": "^1.0.0",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
+		"react-router-dom": "^5.1.2",
 		"styled-components": "^4.4.1"
 	}
 }

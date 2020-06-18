@@ -1,5 +1,5 @@
 import styled, { css, createGlobalStyle } from 'styled-components';
-import { TEAL } from 'Styles/colors';
+import { TEAL , WHITE} from 'Styles/colors';
 
 // resetting browser default styles
 export const GlobalStyles = createGlobalStyle`
@@ -12,6 +12,13 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${TEAL};
   }
 
+  html, body {
+    min-width: 540px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
   h1,h2,h3,h4,h5,h6,p,ul,li {
     margin: 0;
     padding: 0;
@@ -22,15 +29,4 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 `;
-
-// wrapper for keeping all elements in the same box-model styles
-// export const wrapper = css`
-//   padding: 16px;
-//   max-width: 1200px;
-//   margin: 0 auto;
-// `;
-
-// export const Wrapper = styled.div`
-//   ${wrapper}
-// `;
 
