@@ -4,6 +4,7 @@
 	"description": "home made grat app",
 	"main": "index.jsx",
 	"scripts": {
+		"start": "cd server flask run",
 		"test": "jest",
 		"build": "webpack",
 		"webpack-dev-server": "webpack-dev-server",
