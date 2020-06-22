@@ -13,7 +13,7 @@ app = Flask(__name__, static_folder='../dist', static_url_path='')
 
 @app.route('/')
 def index():
-    return 'yooooo'
+    return render_template('index.html')
 
 CORS(app)
 app.config.from_object(Config)
