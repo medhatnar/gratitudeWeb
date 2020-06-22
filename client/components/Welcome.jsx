@@ -43,7 +43,7 @@ export const Welcome = props => {
 	}, []);
 
 	async function fetch_meditations() {
-		let meditationReq = await fetch('http://localhost:5000/meditations', {
+		let meditationReq = await fetch('/meditations', {
 			method: 'GET',
 			'Access-Control-Allow-Origin': '*',
 			headers: {

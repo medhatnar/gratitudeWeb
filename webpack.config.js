@@ -7,7 +7,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/dist/',
+		publicPath: '/',
 	},
 	devServer: {
 		contentBase: path.resolve(__dirname, 'dist'),
@@ -32,7 +32,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new HtmlWebpackPlugin({ template: './server/templates/index.html'}),
+		new HtmlWebpackPlugin({ template: './client/index.html'}),
 	],
 	resolve: {
 		alias: {
