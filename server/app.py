@@ -5,14 +5,19 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 
 from config import Config
-from routes import routes
+# from routes import routes
 
 db = SQLAlchemy()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../dist', static_url_path='')
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
 CORS(app)
 app.config.from_object(Config)
-app.register_blueprint(routes.app_bp)
+# app.register_blueprint(routes.app_bp)
 
 db.init_app(app)
 migrate = Migrate(app, db)
