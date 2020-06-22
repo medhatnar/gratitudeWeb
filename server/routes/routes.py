@@ -5,5 +5,5 @@ app_bp = Blueprint('app_bp', __name__, static_folder='../../dist', static_url_pa
 
 
 @app_bp.route('/')
-def app():
-    return app_bp.send_static_file('index.html')
+def index():
+    return 'whats up'
