@@ -9,7 +9,7 @@ from routes import routes
 
 db = SQLAlchemy()
 
-app = Flask(__name__, instance_relative_config=False)
+app = Flask(__name__)
 CORS(app)
 app.config.from_object(Config)
 app.register_blueprint(routes.app_bp)
